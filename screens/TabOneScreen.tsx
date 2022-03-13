@@ -1,44 +1,66 @@
 import React from "react";
-import { View, Image, Text, Dimensions } from "react-native";
-import LottieView from 'lottie-react-native';
+import { View, Text, Image, Dimensions } from "react-native";
 
 export default function TabOneScreen() {
   return (
     <View
       style={{
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#FDD8F7',
         justifyContent: 'center',
         paddingHorizontal: 20
       }}
     >
+
+
       <View style={{
         flex: 1,
+        marginTop: 50,
       }}>
-        <LottieView
-          source={require('../assets/lottie/39476-login-screen.json')}
-          autoPlay={true}
-          loop={true}
-          style={{
-            flex: 1,
-          }}
-        />
+         <Image
+      style={{
+      height: '75%',
+      width: '100%',
+      resizeMode: 'center'
+      
+    }}
+    source={{uri:'https://cdn-icons-png.flaticon.com/512/187/187879.png'}}
+  />
+
       </View>
+
+
+      <Text style={{
+        fontSize: 50,
+        textAlign: "center", 
+        marginBottom: 50,
+        color: '#3d6d8d'
+    
+      
+      }}>Welcome!
+      </Text>
       <View style={{
         flex: 1,
       }}>
         <View style={{
           flex: 0
         }}>
-          <Text>
-            Email
+          <Text style={{
+          
+            textAlign: "center",
+            fontFamily: 'poppins-bold',
+            fontSize: 20,
+            color: '#3d6d8d'
+          }}>Username
           </Text>
           <View style={{
-            height: 50,
+            height: 40,
             width: '100%',
-            marginBottom: 20,
+            marginBottom: 30,
             borderWidth: 1,
-            borderRadius: 10
+            borderRadius: 20,
+            justifyContent: "center",
+            
           }}>
 
           </View>
@@ -46,16 +68,22 @@ export default function TabOneScreen() {
 
         <View style={{
           flex: 0,
-          marginBottom: 40
+          marginBottom: 20
         }}>
-          <Text>
-            Password
-          </Text>
+          <Text style={{
+          
+          textAlign: "center",
+          fontFamily: 'poppins-bold',
+          fontSize: 20,
+          color: '#3d6d8d'
+        }}>Password
+        </Text>
           <View style={{
-            height: 50,
+            height: 40,
             width: '100%',
             borderWidth: 1,
-            borderRadius: 10
+            borderRadius: 20,
+            
           }}>
 
           </View>
@@ -74,12 +102,13 @@ export default function TabOneScreen() {
               alignItems: 'center',
               borderRadius: 10,
               backgroundColor: '#2381EE'
+            
             }}>
               <Text style={{
                 fontSize: 18,
                 color: '#fff'
               }}>
-                Submit
+                Login
               </Text>
             </View>
           </View>
@@ -92,12 +121,14 @@ export default function TabOneScreen() {
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
-        paddingBottom: 20
+        paddingBottom: 20,
+        
       }}>
         <Text style={{
-          fontSize: 18
+          fontSize: 14
+
         }}>
-          Create an account?
+          Don't have an account? Sign up!
         </Text>
       </View>
     </View>
