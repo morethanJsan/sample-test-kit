@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text,TextInput, StyleSheet} from "react-native";
 import Header from "../components/Login/Header";
 import Formlogin from "../components/Login/Formlogin";
+import Footer from "../components/Login/Footer";
 
 export default function TabOneScreen() {
   
@@ -11,27 +12,8 @@ export default function TabOneScreen() {
     >
     <Header />
     <Formlogin />
-      
-      
-      <View style={{
-        height: 50,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        paddingBottom: 10,
-        
-        
-      }}>
-        <Text style={{
-          fontSize: 14,
-          color: '#00b4d8',
-          marginTop: 20,
+    <Footer />
 
-        }}>
-          Don't have an account? Sign up!
-        </Text>
-      </View>
     </View>
   );
 }
@@ -53,7 +35,7 @@ color: '#fb6f92',
   input:{
   height: 40,
   width: '100%',
-  marginBottom: 1,
+  marginBottom: 30,
   borderWidth: 2,
   borderRadius: 20,
   justifyContent: "center",
