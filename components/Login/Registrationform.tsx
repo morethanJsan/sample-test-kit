@@ -125,18 +125,15 @@ const registerSchema = yup.object({
           <Text style={styles.textStyle
           }>Email Address
           </Text>
-          <TextInput
-          style={styles.input}
-          onChangeText={handleChange('EmailAddressText')}
+          <TextInput style={styles.input}
           value={values.emailaddress}
+          onChangeText={handleChange('EmailAddressText')}
+          autoCapitalize={"none"}
           keyboardType={"email-address"}
           placeholder={"  Your email address"}
-          autoCapitalize={"none"}
-          error={errors.emailaddress !== undefined}
           />
           {errors.emailaddress &&
-
-          <Text style= {{marginVertical:5, color: 'pink'}}>
+          <Text style= {{marginVertical:10, color: 'pink'}}>
             {errors.emailaddress}
           </Text>
 }
@@ -200,10 +197,11 @@ const registerSchema = yup.object({
         </View>
         </ScrollView>
         </View> 
-              )};    
+              )} 
         </Formik>
         </ViewWithLoading>
-              ) 
+
+              );
         }
         
         const styles = StyleSheet.create({
@@ -221,7 +219,8 @@ const registerSchema = yup.object({
         color: '#fb6f92',
        
         },
-          input:{
+          
+        input:{
           height: 40,
           width: '100%',
           marginBottom: 10,
@@ -229,7 +228,6 @@ const registerSchema = yup.object({
           borderRadius: 20,
           justifyContent: "center",
           borderColor:'#00b4d8',
-          
         },
 
       });

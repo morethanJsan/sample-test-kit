@@ -11,8 +11,6 @@ interface HeaderProps {
     style?: StyleProp<ViewStyle>,
     loading: boolean,
 }
-
-
 export default function ViewWithLoading({ children, style, loading }: HeaderProps) {
 
     return (
