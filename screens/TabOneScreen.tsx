@@ -1,18 +1,16 @@
 import React from "react";
 import { View, Text,TextInput, StyleSheet, TouchableOpacity} from "react-native";
-//import Header from "../components/Login/Header";
-//import Formlogin from "../components/Login/Formlogin";
-//import Footer from "../components/Login/Footer";
+import * as yup from 'yup';
 import Registrationform from "../components/Login/Registrationform";
+import ViewWithLoading from "../components/ViewWithLoading";
 
-export default function TabTwoScreen() {
+export default function TabOneScreen() {
   
   return (
     <View
     style={styles.container}
     >
     <Registrationform />
-
     </View>
   );
 }

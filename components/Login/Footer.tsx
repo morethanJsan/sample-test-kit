@@ -15,7 +15,6 @@ export default function Footer(){
               fontSize: 14,
               color: '#00b4d8',
               marginTop: 20,
-    
             }}>
               Don't have an account? Sign up!
             </Text>

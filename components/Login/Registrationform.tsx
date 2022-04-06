@@ -1,38 +1,76 @@
-import * as React from "react";
-import {View,Image, StyleSheet, Text, TextInput, Alert} from "react-native";
+import React, {useEffect} from "react";
+import {View,Image, StyleSheet, Text, TextInput, Alert, ScrollView} from "react-native";
+import { ErrorMessage, Formik, prepareDataForValidation } from "formik";
+import * as yup from 'yup';
 import {Button} from "react-native-elements";
+import ViewWithLoading from "../ViewWithLoading";
+
+
 
 export default function Registrationform(){
   const [firstname, setfirstnameText] = React.useState<string>("");
   const [lastname, setlastnameText] = React.useState<string>("");
-  const [usernameText, setusernameText] = React.useState<string>("");
+  const [emailaddress, setEmailAddressText] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
+  const [confirmpassword, setConfirmPassword] = React.useState<string>("");
+  const [loading, setLoading] = React.useState(true);
+  
+
+  useEffect(() => {
+    console.log(loading);
+    setLoading(true);
+    setTimeout(() => {
+          setLoading(false);
+    }, 3000);
+}, [])
+
+
+const registerSchema = yup.object({
+  email: yup.string().required('Email is required').matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)$/, 'Invalid email'),
+  password: yup.string().required('Password is required'),
+  conPassword: yup.string().required('Confirm your password')
+  
+})
+
   
   const handleRegistrationform = () => {
-    const USERNAME = "Admin";
-    const PASSWORD = "Admin";
-
-    if (usernameText === USERNAME && password === PASSWORD)
-      {Alert.alert("Registered", "Successfully Registered");
-      }else
-    {Alert.alert("Error", "Invalid Credentials");
-  }
-}
+    if (password === confirmpassword){
+      Alert.alert("Registered");
+   }
+   else{
+     Alert.alert("Error", "Passwords do not match");
+   }
+   
+ }
     return (
+    <ViewWithLoading loading={loading}>
+      <Formik       
+                initialValues={{
+                email: '',
+                password: '',
+                conPassword:''
+              }}
+              onSubmit={(values, action) => {
+                console.log(values);
+              }}
+              validationSchema={registerSchema}
 
+            >
+              {({ handleChange, values, errors, touched, handleSubmit} ) => (
+              
 <View style={{
         flex: 1,
       }}>
          <Text style={{
-        fontSize: 80,
+        fontSize: 60,
         fontFamily: 'poppins-bold',
         textAlign:'center', 
-        marginTop: 80,
+        marginTop: 20,
         color: '#00b4d8'
       }}>Create
       </Text>
       <Text style={{
-        fontSize: 70,
+        fontSize: 60,
         fontFamily: 'poppins-thin',
         textAlign:'center', 
         marginTop: -40,
@@ -41,12 +79,13 @@ export default function Registrationform(){
       </Text>
       <Text style={{
         fontSize: 12,
-        fontFamily: 'poppins-semibold',
+        fontFamily: 'poppins-bold',
         textAlign:'center', 
         marginTop:-20,
         color: '#00b4d8'
       }}> Please signup to continue
       </Text>
+      <ScrollView>
         <View style={{
           flex: 0,
           marginTop: 15,
@@ -84,16 +123,23 @@ export default function Registrationform(){
           marginTop: 1,
         }}>
           <Text style={styles.textStyle
-          }>Username
+          }>Email Address
           </Text>
           <TextInput
           style={styles.input}
-          onChangeText={setusernameText}
-          value={usernameText}
+          onChangeText={setEmailAddressText}
+          value={emailaddress}
           keyboardType={"email-address"}
           placeholder={"  Your email address"}
           autoCapitalize={"none"}
+          error={errors.emailaddress !== undefined}
           />
+          {errors.emailaddress &&
+
+          <Text style= {{marginVertical:5, color: 'pink'}}>
+            {errors.emailaddress}
+          </Text>
+}
         </View>
         <View style={{
           flex: 0,
@@ -112,7 +158,20 @@ export default function Registrationform(){
           />
           <View style={{
           flex: 0,
+          marginBottom: 20
         }}>
+          <Text style={styles.textStyle
+          }>Confirm Password
+        </Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={setConfirmPassword}
+          value={confirmpassword}
+          keyboardType={"visible-password"}
+          placeholder={"  Your password"}
+          secureTextEntry={true}
+          />
+
 
           <View style={{
             flex: 0
@@ -141,7 +200,11 @@ export default function Registrationform(){
           </View>
           </View>
         </View>
+        </ScrollView>
         </View>
+        </Formik>
+        </ViewWithLoading>
+      
   )
         }
         const styles = StyleSheet.create({
@@ -168,6 +231,7 @@ export default function Registrationform(){
           justifyContent: "center",
           borderColor:'#00b4d8',
           
-          
         },
+
       });
+      

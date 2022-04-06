@@ -7,7 +7,7 @@ import Footer from "../components/Login/Footer";
 import EditScreenInfo from '../components/EditScreenInfo';
 //import { Text, View } from '../components/Themed';
 
-export default function TabOneScreen() {
+export default function TabTwoScreen() {
   
   return (
     <View
