@@ -26,9 +26,9 @@ export default function Registrationform(){
 
 
 const registerSchema = yup.object({
-  email: yup.string().required('Email is required').matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)$/, 'Invalid email'),
+  emailaddress: yup.string().required('Email is required').matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)$/, 'Invalid email'),
   password: yup.string().required('Password is required'),
-  conPassword: yup.string().required('Confirm your password')
+  ConfirmPassword: yup.string().required('Confirm your password')
   
 })
 
@@ -42,19 +42,19 @@ const registerSchema = yup.object({
    }
    
  }
-    return (
+    return ( 
     <ViewWithLoading loading={loading}>
       <Formik       
                 initialValues={{
-                email: '',
+                emailaddress: '',
                 password: '',
-                conPassword:''
+                ConfirmPassword:''
               }}
               onSubmit={(values, action) => {
                 console.log(values);
               }}
               validationSchema={registerSchema}
-
+    
             >
               {({ handleChange, values, errors, touched, handleSubmit} ) => (
               
@@ -127,8 +127,8 @@ const registerSchema = yup.object({
           </Text>
           <TextInput
           style={styles.input}
-          onChangeText={setEmailAddressText}
-          value={emailaddress}
+          onChangeText={handleChange('EmailAddressText')}
+          value={values.emailaddress}
           keyboardType={"email-address"}
           placeholder={"  Your email address"}
           autoCapitalize={"none"}
@@ -150,8 +150,8 @@ const registerSchema = yup.object({
         </Text>
         <TextInput
           style={styles.input}
-          onChangeText={setPassword}
-          value={password}
+          onChangeText={handleChange('Password')}
+          value={values.password}
           keyboardType={"visible-password"}
           placeholder={"  Your password"}
           secureTextEntry={true}
@@ -165,14 +165,12 @@ const registerSchema = yup.object({
         </Text>
         <TextInput
           style={styles.input}
-          onChangeText={setConfirmPassword}
-          value={confirmpassword}
+          onChangeText={handleChange('ConfirmPassword')}
+          value={values.ConfirmPassword}
           keyboardType={"visible-password"}
           placeholder={"  Your password"}
           secureTextEntry={true}
           />
-
-
           <View style={{
             flex: 0
           }}>
@@ -201,12 +199,13 @@ const registerSchema = yup.object({
           </View>
         </View>
         </ScrollView>
-        </View>
+        </View> 
+              )};    
         </Formik>
         </ViewWithLoading>
-      
-  )
+              ) 
         }
+        
         const styles = StyleSheet.create({
           container: {
             flex: 1,
