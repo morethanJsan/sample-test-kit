@@ -40,7 +40,7 @@ return (
         </View>
         <View style={{
           flex: 0,
-          marginBottom: 20
+          marginBottom: -10
         }}>
           <Text style={styles.textStyle
           }>Password
@@ -66,14 +66,15 @@ return (
             titleStyle={{
               fontFamily: 'poppins-bold',
               fontSize:14,
-              color: '#ffecd1',
+              //login text button
+              color: '#ffffff',
               marginVertical: 1,
               
             }}
             buttonStyle={{
-              backgroundColor: '#fb6f92',
+              backgroundColor: '#E13257',
               borderRadius: 20,
-              marginTop: -10,
+              marginTop: 10,
              
             }}
             type={"solid"}
@@ -102,18 +103,20 @@ return (
       textStyle:{
       textAlign: "center",
       fontFamily: 'poppins-bold',
+      marginTop: -40,
+      marginBottom: 1,
       fontSize: 20,
-      color: '#fb6f92',
+      color: '#4F5558',
      
       },
         input:{
         height: 40,
         width: '100%',
-        marginBottom: 10,
-        borderWidth: 2,
-        borderRadius: 20,
+        marginBottom: 50,
+        borderWidth: 1,
+        borderRadius: 10,
         justifyContent: "center",
-        borderColor:'#00b4d8',
+        borderColor:'#000000',
         
         
       },

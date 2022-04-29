@@ -1,14 +1,15 @@
+import * as React from "react";
 //import { StyleSheet } from 'react-native';
-import React from "react";
 import { View, Text,TextInput, StyleSheet} from "react-native";
 import Header from "../components/Login/Header";
 import Formlogin from "../components/Login/Formlogin";
 import Footer from "../components/Login/Footer";
 import EditScreenInfo from '../components/EditScreenInfo';
+//import {useHistory} from "react-router-dom";
 //import { Text, View } from '../components/Themed';
 
 export default function TabTwoScreen() {
-  
+  //Import {useHistory} from "react-router-dom";
   return (
     <View
     style={styles.container}
@@ -26,7 +27,8 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
  container: {
     flex: 1,
-    backgroundColor: '#ffecd1',
+    //background
+    backgroundColor: '#ffffff',
     justifyContent: 'center',
     paddingHorizontal: 20,
  },

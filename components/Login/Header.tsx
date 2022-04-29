@@ -14,15 +14,29 @@ return (
       resizeMode: 'center'
       
     }}
-    source={{uri:'https://cdn-icons-png.flaticon.com/512/187/187879.png'}}
+    source={{uri:'https://cdn-icons-png.flaticon.com/512/906/906360.png'}}
+    
+    
   />
-   <Text style={{
-        fontSize: 50,
+  r
+      <Text style={{
+        fontSize: 80,
         fontFamily: 'poppins-bold',
+        textAlign: "center",
+        marginTop: -50,
+        marginBottom: -100,
+        marginLeft: -160,
+        color: '#E13259'
+      }}>A
+      </Text>
+      <Text style={{
+        fontSize: 50,
+        fontFamily: 'poppins-thin',
         textAlign: "center", 
         marginBottom: 50,
-        color: '#00b4d8'
-      }}>Welcome!
+        marginLeft: 60,
+        color: '#E13257'
+      }}>GENDA
       </Text>
 
       </View>

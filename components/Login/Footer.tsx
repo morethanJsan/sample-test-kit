@@ -13,7 +13,7 @@ export default function Footer(){
           }}>
             <Text style={{
               fontSize: 14,
-              color: '#00b4d8',
+              color: '#567DFA',
               marginTop: 20,
             }}>
               Don't have an account? Sign up!

@@ -5,7 +5,6 @@ import { HeaderHeightContext } from "@react-navigation/elements";
 import useColorScheme from '../hooks/useColorScheme';
 
 
-
 interface HeaderProps {
     children: React.ReactNodeArray | React.ReactNode,
     style?: StyleProp<ViewStyle>,

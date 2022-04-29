@@ -1,4 +1,5 @@
-import React, {useEffect} from "react";
+import * as React from "react";
+import {useEffect} from "react";
 import {View,Image, StyleSheet, Text, TextInput, Alert, ScrollView} from "react-native";
 import { ErrorMessage, Formik, prepareDataForValidation } from "formik";
 import * as yup from 'yup';
@@ -46,8 +47,8 @@ const registerSchema = yup.object({
     <ViewWithLoading loading={loading}>
       <Formik       
                 initialValues={{
-                emailaddress: '',
-                password: '',
+                Emailaddress: '',
+                Password: '',
                 ConfirmPassword:''
               }}
               onSubmit={(values, action) => {
@@ -65,30 +66,40 @@ const registerSchema = yup.object({
         fontSize: 60,
         fontFamily: 'poppins-bold',
         textAlign:'center', 
-        marginTop: 20,
-        color: '#00b4d8'
+        marginTop: 50,
+        marginLeft: -100,
+        color: '#DD3453'
       }}>Create
       </Text>
       <Text style={{
         fontSize: 60,
-        fontFamily: 'poppins-thin',
+        fontFamily: 'poppins-bold',
+        textAlign:'center', 
+        marginTop: -105,
+        marginLeft: 220,
+        color: '#FDC307'
+      }}>An
+      </Text>
+      <Text style={{
+        fontSize: 60,
+        fontFamily: 'poppins-bold',
         textAlign:'center', 
         marginTop: -40,
-        color: '#00b4d8'
+        color: '#DD3453'
       }}>Account
       </Text>
       <Text style={{
         fontSize: 12,
-        fontFamily: 'poppins-bold',
+        fontFamily: 'poppins-regular',
         textAlign:'center', 
         marginTop:-20,
-        color: '#00b4d8'
+        color: '#90CCFE'
       }}> Please signup to continue
       </Text>
       <ScrollView>
         <View style={{
           flex: 0,
-          marginTop: 15,
+          marginTop: 30,
         }}>
           <Text style={styles.textStyle
           }>First Name
@@ -97,7 +108,7 @@ const registerSchema = yup.object({
           style={styles.input}
           onChangeText={setfirstnameText}
           value={firstname}
-          keyboardType={"email-address"}
+          keyboardType={"default"}
           placeholder={"  Your first name"}
           autoCapitalize={"none"}
           />
@@ -113,8 +124,8 @@ const registerSchema = yup.object({
           style={styles.input}
           onChangeText={setlastnameText}
           value={lastname}
-          keyboardType={"email-address"}
-          placeholder={"  Your last name"}
+          keyboardType={"default"}
+          placeholder={"Your last name"}
           autoCapitalize={"none"}
           />
         </View>
@@ -126,15 +137,15 @@ const registerSchema = yup.object({
           }>Email Address
           </Text>
           <TextInput style={styles.input}
-          value={values.emailaddress}
-          onChangeText={handleChange('EmailAddressText')}
+          value={values.Emailaddress}
+          onChangeText={setEmailAddressText}
           autoCapitalize={"none"}
           keyboardType={"email-address"}
           placeholder={"  Your email address"}
           />
-          {errors.emailaddress &&
+          {errors.Emailaddress &&
           <Text style= {{marginVertical:10, color: 'pink'}}>
-            {errors.emailaddress}
+            {errors.Emailaddress}
           </Text>
 }
         </View>
@@ -148,7 +159,7 @@ const registerSchema = yup.object({
         <TextInput
           style={styles.input}
           onChangeText={handleChange('Password')}
-          value={values.password}
+          value={values.Password}
           keyboardType={"visible-password"}
           placeholder={"  Your password"}
           secureTextEntry={true}
@@ -176,12 +187,12 @@ const registerSchema = yup.object({
             titleStyle={{
               fontFamily: 'poppins-bold',
               fontSize:14,
-              color: '#ffecd1',
+              color: '#ffffff',
               marginVertical: 1,
               
             }}
             buttonStyle={{
-              backgroundColor: '#fb6f92',
+              backgroundColor: '#E13257',
               borderRadius: 20,
               marginTop: 20,
              
@@ -213,10 +224,11 @@ const registerSchema = yup.object({
         
           },
         textStyle:{
-        textAlign: "center",
-        fontFamily: 'poppins-bold',
-        fontSize: 20,
-        color: '#fb6f92',
+        textAlign: "left",
+        fontFamily: 'poppins-regular',
+        fontSize: 15,
+        color: '#4F5558',
+        
        
         },
           
@@ -224,10 +236,10 @@ const registerSchema = yup.object({
           height: 40,
           width: '100%',
           marginBottom: 10,
-          borderWidth: 2,
-          borderRadius: 20,
+          borderWidth: 0,
+          borderRadius: 10,
           justifyContent: "center",
-          borderColor:'#00b4d8',
+          backgroundColor: '#EDEDED',
         },
 
       });
